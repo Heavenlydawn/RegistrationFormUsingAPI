@@ -1,55 +1,62 @@
 var card = document.getElementById("card");
+
+// *Variable Declaration
+const backName = document.querySelector(".name");
+const backEmail = document.querySelector(".email");
+const backNumber = document.querySelector(".number");
+const backLocation = document.querySelector(".location");
+
+
+// *Using Classes
 class User {
-    constructor(name, email, number, location){
-        this.name = name;
-        this.email = email
-        this.number = number
-        this.location = location
-    }
+  constructor(name, email, number, location) {
+    this.name = name;
+    this.email = email;
+    this.number = number;
+    this.location = location;
+  }
 }
 
-function openRegister(){
- 
-    let users =  []
+let users = [];
+function openRegister() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let number = document.getElementById("number").value;
+  let location = document.getElementById("location").value;
 
-    let name = document.getElementById('name').value
-    let email = document.getElementById('email').value
-    let number = document.getElementById('number').value
-    let location = document.getElementById('location').value
-    let userData = new User(name, email, number, location)
-    users.push(userData)
-    users.forEach(user => {
-        document.querySelector('.name').innerHTML = user.name
-        document.querySelector('.email').innerHTML = user.email
-        document.querySelector('.number').innerHTML = user.number
-        document.querySelector('.location').innerHTML = user.location
-
-    });
-    console.log(users)
-    card.style.transform = "rotateY(-180deg)";
+  let userData = new User(name, email, number, location);
+  users.push(userData);
+  users.forEach((user) => {
+    backName.innerHTML = user.name;
+    backEmail.innerHTML = user.email;
+    backNumber.innerHTML = user.number;
+    backLocation.innerHTML = user.location;
+  });
+  console.log(users);
+  card.style.transform = "rotateY(-180deg)";
 }
 
-function openLogin(){
-    card.style.transform = "rotateY(0deg)";
+function openLogin() {
+  card.style.transform = "rotateY(0deg)";
 }
 
-// !Editing Acct Details
-let editAcct = document.getElementById('editAcct')
-editAcct.addEventListener('click', editAccount)
-function editAccount(){
-    
+// *Editing Acct Details
+let editAcct = document.getElementById("editAcct");
+editAcct.addEventListener("click", editAccount);
+function editAccount() {
+    alert("Wanna make some corrections?")
 }
 
+// *Deleting Acct
+let deleteAcct = document.getElementById("deleteAcct");
+deleteAcct.addEventListener("click", deleteAccount);
+function deleteAccount() {
 
-// !Deleting Acct
-let deleteAcct = document.getElementById('deleteAcct')
-deleteAcct.addEventListener('click', deleteAccount)
-function deleteAccount(){
-    // alert("Are you sure you want to delete your Account?");
-    delete User.name
-    delete User.email
-    delete User.number
-    delete User.location
-    
+  users.splice(0, users.length);
+  backName.innerHTML =" ";
+  backEmail.innerHTML =" ";
+  backNumber.innerHTML =" ";
+  backLocation.innerHTML =" ";
+
+  console.log(users);
 }
-
