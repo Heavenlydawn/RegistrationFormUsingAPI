@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration/Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- Form Section -->
+        <div class="container">
+            <div class="card">
+                <div class="inner-box" id="card">
+                    <div class="card-front">
+
+
+                        <h2>REGISTER</h2>
+                        <form action="#">
+                            <input type="text" id="name" class="input-box" placeholder="Your Name" required>
+                            <input type="email" id="email" class="input-box" placeholder="Email Address" required>
+                            <input type="tel" id="number" class="input-box" placeholder="Phone Number" required>
+                            <input type="text" id="location" class="input-box" placeholder="Location" required>
+                            <input type="password" class="input-box" placeholder="Password" required>
+                            <input type="checkbox" /><span>Remember Me</span>
+                        </form>
+                        <button type="button" class="btn" onclick="openRegister()">
+                                Register
+                        </button>
+                        
+                       
+                    <a href="">Forgot Password</a>
+                
+                    </div>
+
+                    
+                    <div class="card-back">
+                        <h1>USER DETAILS</h1>
+                        <div class="user-info">
+                        <h2 class="name"></h2>
+                        <h3 class="email"></h3>
+                        <h3 class="number"></h3>
+                        <h3 class="location"></h3>
+                    </div>
+
+
+                    <button type="button" class="btn" id="editAcct">
+                        Edit Details
+                    </button>
+                    <button type="button" id="deleteAcct">
+                        Delete Account
+                    </button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="randomUserGenerator">
+            <ul>
+                <li><a href="./index1.html">Random User Generator</a></li>
+            </ul>
+        </div>
+
+        <script src="./script.js"></script>
+</body>
+</html>
