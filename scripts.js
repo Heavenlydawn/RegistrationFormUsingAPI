@@ -10,8 +10,8 @@ async function userInfo(){
         console.log(user)
         userDisplay.innerHTML =  `
         <div class = "User-data">
-            <img width="300" src = ${user.picture.large} style = "border:5px solid blue;"/>
-            <h1> Name:${user.name.title}
+            <img width="300" src = ${user.picture.large} style = "border:5px solid rgb(85, 85, 178);"/>
+            <h1>${user.name.title}
             ${user.name.first}
             ${user.name.last}
             </h1>

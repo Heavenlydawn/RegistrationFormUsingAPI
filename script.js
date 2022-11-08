@@ -6,6 +6,7 @@ const backEmail = document.querySelector(".email");
 const backNumber = document.querySelector(".number");
 const backLocation = document.querySelector(".location");
 
+const tableBody = document.querySelector(".tableBody");
 
 // *Using Classes
 class User {
@@ -26,14 +27,36 @@ function openRegister() {
 
   let userData = new User(name, email, number, location);
   users.push(userData);
-  users.forEach((user) => {
+  users.map((user) => {
     backName.innerHTML = user.name;
     backEmail.innerHTML = user.email;
     backNumber.innerHTML = user.number;
     backLocation.innerHTML = user.location;
   });
-  console.log(users);
+  console.log("user", userData);
   card.style.transform = "rotateY(-180deg)";
+  displayCard();
+}
+
+function openLogin() {
+  card.style.transform = "rotateY(0deg)";
+}
+
+// *Table Body
+function displayCard() {
+  var userInfo = users.map((user, idx) => {
+    return `
+            <tr id=${idx} >
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.number}</td>
+                    <td>${user.location}</td>
+                    <td><button onclick="deleteAccount(${idx})">Delete</button></td>
+            </tr>
+        `;
+  });
+  console.log(userInfo);
+  return (tableBody.innerHTML = userInfo);
 }
 
 function openLogin() {
@@ -44,19 +67,23 @@ function openLogin() {
 let editAcct = document.getElementById("editAcct");
 editAcct.addEventListener("click", editAccount);
 function editAccount() {
-    alert("Wanna make some corrections?")
+  alert("Wanna make some corrections?");
 }
 
 // *Deleting Acct
 let deleteAcct = document.getElementById("deleteAcct");
 deleteAcct.addEventListener("click", deleteAccount);
-function deleteAccount() {
-
-  users.splice(0, users.length);
-  backName.innerHTML =" ";
-  backEmail.innerHTML =" ";
-  backNumber.innerHTML =" ";
-  backLocation.innerHTML =" ";
-
-  console.log(users);
+function deleteAccount(idx) {
+//   users.splice(0, users.length);
+//   backName.innerHTML = " ";
+//   backEmail.innerHTML = " ";
+//   backNumber.innerHTML = " ";
+//   backLocation.innerHTML = " ";
+  //   tableBody.innerHTML = " ";
+  var item = document.getElementById(`${idx}`);
+  var newUser = users.filter(user => !user[idx] )
+    item.innerHTML = ''
+  console.log(item);
 }
+
+displayCard();
